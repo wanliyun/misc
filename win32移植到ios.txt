@@ -1,0 +1,40 @@
+移植是为了适应新的环境。
+找出当前环境与目标环境的差异是关键。
+
+主要差异:
+1.编译器:VC++  -> clang++
+2.目标体系结构:x86->arm64
+3.os:windows -> apple
+4.调试环境:本机调试->交叉调试
+
+遇到的问题及解决方法:
+1.openssl编译:
+有一个专门编译openssl库的bash脚本，自动下载并编译。
+2.wxSqlite3的编译:
+主要是由于类似CMake的工具引起的，它会把指定目录下所有文件统统加入工程并编译。而wxSqlite3
+恰恰又几个.c文件是通过#include 的方式使用的不需要也不能编译。
+把wxSqlite3目录移到公共包含目录，添加一个.c仅#include需要的.c文件.
+3.std::exception的构造
+不支持std::exception(const char *);
+使用std::logic_error(const char *)代替;
+4._mkdir->mkdir
+5.混乱的自定义类型
+会引起函数签名不一致,进而导致纯虚函数没有实现等问题。
+同一类型 typedef 多次定义不会报错，以最后的type为准。
+typedef受namespace影响.
+6.FD_SET的平台优化代码
+针对windows下的FD_SET数据结构有优化，可以一次添加多个socket到fd_set。而ios上的fd_set内部结构
+和windows下不一致。
+解决办法是：不使用优化。
+7.hash_map的实现
+8.&和|操作符同时出现时警告
+非常隐晦，&的优先级高于|
+9.目录分隔符
+10.文件名大小写
+mac os x下编译时对文件名大小写不敏感，而ipad应用程序使用的资源却是大小写敏感的
+11.lib库中的全局变量导出
+
+总结:
+代码的差异相对较小，而大部分时间消耗在处理资源的问题。
+
+
