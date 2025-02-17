@@ -31,15 +31,7 @@ HTTP_headers = {
 
 # svn名对应的 redmine名字
 NameMap = {
-	'liwenkun' : ('LWK 李文坤', "1cce328d711e2fc170f284d4d5e424e897fe4530"),
-	'jiangling' : ('JL 蒋灵', "b805b21e3f8eb6f877cbbcc5f710697d7ebc9126"),
-	'shiqian' : ('SQ 石乾', "8872933dc147bf9bcad523943a42f9f3aee9f3c4"),
-	'lvfanghao' : ('LFH 吕芳豪', "45c94942b6511cfdd94a8f2998af7ce0fc167fb7"),
-	'sunhangxian' : ('SHX 孙杭献', "8aac7caca94e38d40bdf9dc0e849503288a3349d"),
-	'bichun' : ('BC 毕纯', "0dcc0513d2bbd3167326fe7f4ac0cee4a7ee64ad"),
-	'xiaoyufei' : ('XYF 肖宇飞', "8b320b04f9159bf8537012b5fb8e38428f0732a1"),
-	'chenhongjie' : ('CHJ 陈鸿杰', "6081d02271c0fca4387ceae1a6f23d567fe6de49"),
-	'lijialiang' : ('LJL 李嘉椋', "9d213171cad611a6d5878e33f85db332f26e3648"),
+
 }
 
 def extract_info(s):
